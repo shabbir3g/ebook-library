@@ -1,12 +1,14 @@
 const searchBook = () => {
 
     const searchField = document.getElementById('search-field');
+    const searchTitle = document.getElementById('search-title');
 
     
     const searchText = searchField.value;
+    searchTitle.innerHTML = `Search results for: ${searchText}`;
     toggleSpinner('block');
     booksToogleContainier('none');
-    url = `http://openlibrary.org/search.json?q=${searchText}`;
+    url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     fetch(url)
     .then(res => res.json())
@@ -38,7 +40,7 @@ const booksToogleContainier = displayStyle => {
 const displaySearchResult = (books) => {
 
     if(books.length === 0){
-        notification('danger', 'No Search Results Found');
+        notification('danger', `Couldn't find what you're looking for!`);
         
        
     
@@ -66,17 +68,10 @@ const displaySearchResult = (books) => {
             <strong>First Publish Year: </strong>${book.first_publish_year? book.first_publish_year: ''} <br>
             </p>
             </div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-        `;
+        </div>`;
+        
         bookContainer.appendChild(div);
         console.log(book);
-
-      
-    
-    
     });
 
     toggleSpinner('none');

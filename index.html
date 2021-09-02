@@ -22,10 +22,12 @@
     </style>
 </head>
 <body>
-    
-    <div class="input-group my-5 w-50 mx-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Search Book Name" aria-label="Search Book Name" aria-describedby="search-book">
-        <button onclick="searchBook()" class="btn btn-outline-secondary" type="button" id="search-book">Button</button>
+    <header>
+        <h2 id="search-title" class="text-center mt-3 text-success">Search your Favourite Book</h2>
+    </header>
+    <div class="input-group my-3 w-50 mx-auto">
+        <input id="search-field" type="text" class="form-control border border-success" placeholder="Search The Book You Want" aria-label="Search Book Name" aria-describedby="search-book">
+        <button onclick="searchBook()" class="btn btn-outline-secondary bg-success text-white" type="button" id="search-book">Search</button>
     </div>
 
     <div id="spinner">
