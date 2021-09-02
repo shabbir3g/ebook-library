@@ -4,15 +4,19 @@ const searchBook = () => {
     const searchTitle = document.getElementById('search-title');
     
     const searchText = searchField.value;
+   
+    if(searchText == ''){
+        notification('warning', 'Please Enter book name then search again');
+    }else{
     searchTitle.innerHTML = `Search results for: ${searchText}`;
     toggleSpinner('block');
     booksToggleContainier('none');
-    url = `https://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     fetch(url)
     .then(res => res.json())
     .then(data => displaySearchResult(data.docs));
-
+    }
     searchField.value = '';
 }
 
